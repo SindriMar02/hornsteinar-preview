@@ -95,6 +95,12 @@
       C.expand = function () { if (state.collapsed) applyState(false, true); };
       return function () { C.expand = null; state.collapsed = false; };
     });
+    // below 1280: the logo fades after the first scroll so it never sits on a photo or on text (CSS .is-scrolled)
+    mm.add('(max-width: 1279.98px)', function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 100);
+      var st = ScrollTrigger.create({ trigger: page, start: 'top+=100px top', onEnter: function () { header.classList.add('is-scrolled'); }, onLeaveBack: function () { header.classList.remove('is-scrolled'); } });
+      return function () { st.kill(); header.classList.remove('is-scrolled'); };
+    });
     gsap.set(header, { yPercent: 0 });
   };
 
