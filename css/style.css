@@ -159,7 +159,11 @@ html.menu-open [data-contact-open]{pointer-events:none}
 .menu-card-text{display:block;margin-top:1rem}
 .menu-card-text .label-s{color:var(--deep-grey);margin-top:.6rem;display:block}
 .menu-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.8rem 3.2rem;align-self:end}
-.menu-foot .lang-link{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3rem}
+/* language switch in the menu's top bar, in the slot the hidden Contact pill leaves free (the menu foot is below the fold on a phone) */
+.menu-lang{position:absolute;z-index:2;top:0;right:calc(var(--margin) + 5.6rem);height:var(--header);display:flex;align-items:center;opacity:0;pointer-events:none;transition:opacity .25s var(--ease-out)}
+html.menu-open .menu-lang{opacity:1;transition-delay:.55s}
+.menu-lang .lang-link{pointer-events:auto;display:inline-flex;align-items:center;height:3.5rem;padding:0 1.6rem;border:1px solid rgb(236 234 229 / .35);border-radius:100px;font-size:1.5rem;font-weight:500;line-height:1;color:var(--white);text-decoration:none;white-space:nowrap;transition:background-color var(--t-fast) var(--ease-out)}
+@media(hover:hover){.menu-lang .lang-link:hover{background:rgb(236 234 229 / .12)}}
 @media(min-width:48rem){.menu-inner{grid-template-rows:1fr auto}.menu-foot{grid-column:1/-1}}
 
 /* ---------------- contact sheet (Module 23) ---------------- */
