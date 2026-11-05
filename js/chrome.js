@@ -18,7 +18,7 @@
   function trap(e, root, extraFirst) {
     if (e.key !== 'Tab') return;
     var list = focusables(root);
-    if (extraFirst) list.unshift(extraFirst);
+    if (extraFirst) list = [].concat(extraFirst, list);
     if (!list.length) return;
     var first = list[0], last = list[list.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -39,7 +39,7 @@
     mToggle.addEventListener('click', function (e) { state.menu ? C.closeMenu(false, e.detail === 0) : C.openMenu(e.detail === 0); });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { if (state.contact) C.closeContact(false, true); else if (state.menu) C.closeMenu(false, true); }
-      if (state.menu) trap(e, menu, mToggle);
+      if (state.menu) trap(e, menu, [$('.pill-lang'), mToggle].filter(Boolean));
       if (state.contact) trap(e, cPanel);
     });
     $$('[data-contact-open]').forEach(function (a) {
