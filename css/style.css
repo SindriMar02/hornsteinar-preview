@@ -638,3 +638,7 @@ html.menu-open .menu-lang{opacity:1;transition-delay:.55s}
   .fcard-meta .tag{grid-column:1}
   .fcard-1 .fcard-meta .tag-more,.fcard-2 .fcard-meta .tag-more,.fcard-3 .fcard-meta .tag-more,.fcard-4 .fcard-meta .tag-more{display:none}
 }
+
+/* Icelandic compounds are long ("landslagshönnunar", "Hjúkrunarheimili"): keep each word inside its box where the English type size would clip it (iOS pass, 5 Nov) */
+@media(max-width:47.99rem){html[lang="is"] .work-title{font-size:4rem}}
+@media(min-width:48rem) and (max-width:63.99rem){html[lang="is"] .phero-title{font-size:4.4rem}}
