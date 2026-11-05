@@ -111,7 +111,7 @@
     state.menu = true; state.lastOpener = mToggle;
     menu.hidden = false;
     html.classList.add('menu-open');
-    mToggle.setAttribute('aria-expanded', 'true'); mToggle.setAttribute('aria-label', 'Close menu');
+    mToggle.setAttribute('aria-expanded', 'true'); mToggle.setAttribute('aria-label', HS.t.menuClose);
     var page = pageEl(); if (page) { page.setAttribute('inert', ''); $('[data-page-inner]', page).classList.add('a'); }
     if (!state.menuLock) { state.menuLock = true; HS.lock(true); }
     if (state.tl) state.tl.kill();
@@ -130,7 +130,7 @@
   C.closeMenu = function (instant, viaKey) {
     if (!state.menu) return Promise.resolve();
     state.menu = false;
-    mToggle.setAttribute('aria-expanded', 'false'); mToggle.setAttribute('aria-label', 'Open menu');
+    mToggle.setAttribute('aria-expanded', 'false'); mToggle.setAttribute('aria-label', HS.t.menuOpen);
     var page = pageEl();
     if (state.tl) state.tl.kill();
     var nav = $$('[data-menu-nav]'), textBits = $$('.menu-foot .mask > *, .menu-card-text .mask > *'), imgs = $$('.menu-card-img img');

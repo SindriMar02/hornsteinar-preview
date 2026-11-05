@@ -4,7 +4,7 @@
   'use strict';
   var HS = window.HS; if (!HS || !HS.$) return;
   var $ = HS.$, $$ = HS.$$;
-  var SECT = {}, LABELS = { won: 'Competition record', '1st': '1st prize', '2nd': '2nd place', mention: 'Special mention' };
+  var SECT = {}, LABELS = { won: HS.t.won, '1st': HS.t['1st'], '2nd': HS.t['2nd'], mention: HS.t.mention };
 
   var S = null; // page state (rebuilt on mount)
 
@@ -21,9 +21,9 @@
   }
   function label(f) {
     if (!f) return '';
-    if (f.k === 'competition') return 'Competition: ' + (LABELS[f.v] || f.v);
+    if (f.k === 'competition') return HS.t.competition + (LABELS[f.v] || f.v);
     var o = $('[data-filter="sector:' + f.v + '"] .fopt-label span span');
-    return 'Sector (proposed): ' + (o ? o.textContent : f.v);
+    return HS.t.sector + (o ? o.textContent : f.v);
   }
   // pure DOM state: which cards/rows are visible, big-card cycle, option ticks, status line, URL
   function applyState(page, f, view) {
@@ -35,7 +35,7 @@
     $('[data-pgrid]', page).hidden = view !== 'grid';
     $('[data-lrows]', page).hidden = view !== 'list';
     $('[data-work-empty]', page).hidden = vis.length > 0;
-    $('[data-work-status]', page).textContent = vis.length + ' project' + (vis.length === 1 ? '' : 's') + (f ? ' · ' + label(f) : '');
+    $('[data-work-status]', page).textContent = HS.t.count(vis.length) + (f ? ' · ' + label(f) : '');
     $$('[data-filter]', page).forEach(function (b) { b.setAttribute('aria-checked', String(!!f && b.getAttribute('data-filter') === f.k + ':' + f.v)); });
     var cnt = $('[data-filters-count]', page); cnt.hidden = !f; cnt.textContent = f ? '1' : '';
     return vis;

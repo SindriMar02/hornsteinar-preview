@@ -105,7 +105,7 @@
   document.addEventListener('click', function (e) {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
-    if ((a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+    if ((a.target && a.target !== '_self') || a.hasAttribute('download') || a.hasAttribute('data-lang-link')) return; // language switch = full load (header, menu and footer are outside the swapped page)
     var u; try { u = new URL(a.href, location.href); } catch (err) { return; }
     if (u.origin !== location.origin || !/\.html$|\/$/.test(u.pathname)) return;
     if (u.pathname === location.pathname && u.search === location.search) {

@@ -5,6 +5,13 @@
   var HS = (window.HS = window.HS || {});
   HS.pages = {};
   HS.booted = false;
+  // the few strings that JS writes into the page (everything else is in the built HTML); language = <html lang>
+  var STR = {
+    en: { menuOpen: 'Open menu', menuClose: 'Close menu', play: 'Play', pause: 'Pause', won: 'Competition record', '1st': '1st prize', '2nd': '2nd place', mention: 'Special mention', competition: 'Competition: ', sector: 'Sector (proposed): ', count: function (n) { return n + ' project' + (n === 1 ? '' : 's'); } },
+    is: { menuOpen: 'Opna valmynd', menuClose: 'Loka valmynd', play: 'Spila', pause: 'Hlé', won: 'Árangur í samkeppnum', '1st': '1. verðlaun', '2nd': '2. sæti', mention: 'Viðurkenning', competition: 'Samkeppni: ', sector: 'Flokkur (tillaga): ', count: function (n) { return n + ' verkefni'; } }
+  };
+  HS.lang = (document.documentElement.lang || 'en').slice(0, 2) === 'is' ? 'is' : 'en';
+  HS.t = STR[HS.lang];
   if (!window.gsap) return;
   gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 

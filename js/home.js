@@ -115,7 +115,7 @@
     if (pauseBtn) {
       if (!motion) pauseBtn.hidden = true;
       pauseBtn.addEventListener('click', function () {
-        paused = !paused; pauseBtn.setAttribute('aria-pressed', String(paused)); pauseBtn.textContent = paused ? 'Play' : 'Pause'; sync();
+        paused = !paused; pauseBtn.setAttribute('aria-pressed', String(paused)); pauseBtn.textContent = paused ? HS.t.play : HS.t.pause; sync();
       });
     }
     page.__cleanups.push(function () { killTimer(); document.removeEventListener('keydown', onKey); document.removeEventListener('visibilitychange', onVis); io.disconnect(); });
@@ -309,7 +309,7 @@
     }, { threshold: 0.25 });
     io.observe(root);
     var onVis = function () { sync(); }; document.addEventListener('visibilitychange', onVis);
-    pbtn.addEventListener('click', function () { paused = !paused; pbtn.setAttribute('aria-pressed', String(paused)); pbtn.textContent = paused ? 'Play' : 'Pause'; sync(); });
+    pbtn.addEventListener('click', function () { paused = !paused; pbtn.setAttribute('aria-pressed', String(paused)); pbtn.textContent = paused ? HS.t.play : HS.t.pause; sync(); });
     function change(i, dir) {
       if (locked || i === cur || !started) return;
       locked = true; killTimer();

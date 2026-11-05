@@ -88,7 +88,7 @@ html.is-loading .loader{display:flex}
 @media(min-width:48rem){.loader-word{font-size:5.2rem}}
 
 /* ---------------- buttons (style-01.css:2635-2745) ---------------- */
-.button{--cs:2.7rem;position:relative;display:inline-flex;align-items:center;min-height:var(--cs);padding-left:calc(var(--cs) + 1.6rem);cursor:pointer;color:var(--black)}
+.button{--cs:2.7rem;position:relative;display:inline-flex;white-space:nowrap;align-items:center;min-height:var(--cs);padding-left:calc(var(--cs) + 1.6rem);cursor:pointer;color:var(--black)}
 .button--sm{--cs:2.4rem}
 .button .button-label{position:relative;translate:-1.9rem 0;transition:translate var(--t-smooth) var(--ease-out)}
 .button .button-label::before{content:"";position:absolute;left:0;bottom:-.3rem;width:100%;height:max(1px,.1rem);background:var(--black);transform-origin:100% 50%;transition:transform var(--t-smooth) var(--ease-out) .15s}
@@ -127,7 +127,7 @@ html.is-loading .loader{display:flex}
 @media(min-width:80rem){.header-nav li{overflow:hidden}.header-nav{display:block;grid-column:3/9}.header-nav ul{display:flex;gap:1.6rem}.header-nav a{display:block;font-size:1.5rem;line-height:1;padding:1rem 0}.header-nav a[aria-current]{text-decoration:underline;text-underline-offset:.4rem;text-decoration-thickness:1px}}
 .header-actions{grid-column:-4/-1;justify-self:end;display:flex;align-items:center;gap:.8rem}
 @media(min-width:48rem){.header-actions{grid-column:-5/-1}}
-.pill{display:inline-flex;align-items:center;justify-content:center;height:3.5rem;border-radius:100px;font-size:1.5rem;font-weight:500;line-height:1;cursor:pointer}
+.pill{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;height:3.5rem;border-radius:100px;font-size:1.5rem;font-weight:500;line-height:1;cursor:pointer}
 .pill-contact{padding:0 1.6rem;background:var(--black);color:var(--white);transition:scale .3s var(--ease-out),background-color var(--t-fast) var(--ease-out),color var(--t-fast) var(--ease-out)}
 .header.is-dark .pill-contact,html.menu-open .pill-contact{background:var(--white);color:var(--black)}
 @media(hover:hover){.pill-contact:hover{scale:1.04}}
@@ -159,6 +159,7 @@ html.menu-open [data-contact-open]{pointer-events:none}
 .menu-card-text{display:block;margin-top:1rem}
 .menu-card-text .label-s{color:var(--deep-grey);margin-top:.6rem;display:block}
 .menu-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.8rem 3.2rem;align-self:end}
+.menu-foot .lang-link{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3rem}
 @media(min-width:48rem){.menu-inner{grid-template-rows:1fr auto}.menu-foot{grid-column:1/-1}}
 
 /* ---------------- contact sheet (Module 23) ---------------- */
